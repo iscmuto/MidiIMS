@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jp.ac.iwasaki.midiims">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ims_3rd"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ims_3rd_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MidiIMS">
+        <activity
+            android:name=".MidiOutputIMSDeviceSettingsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/config_midioutputdevice_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="jp.co.toshiba.iflink.AndroidService" />
+            </intent-filter>
+        </activity>
+        <!-- IMS PermissionActivity -->
+        <activity android:name="jp.co.toshiba.iflink.ui.PermissionActivity" />
+
+        <service
+            android:name=".MidiOutputIMSIms"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":MidiOutputIMSIms">
+            <intent-filter>
+                <action android:name="jp.co.toshiba.iflink.AndroidService" />
+                <action android:name="jp.ac.iwasaki.midiims.MidiOutputIMSIms" />
+            </intent-filter>
+
+            <meta-data
+                android:name="serviceName"
+                android:value="MidiOutputIMSService" />
+            <meta-data
+                android:name="description"
+                android:value="ifLink Micro Service." />
+        </service>
+    </application>
+
+</manifest>

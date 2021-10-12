@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<iflink>
+    <language name="jp">
+        <device
+            name="MidiOutputデバイス"
+            dataitem="sample"
+            icon="midioutputimsdevice.png"
+            key="devicename"
+            value="MidiOutputDevice">
+
+            <then>
+                <condition
+                    name="MIDIメッセージを送信する"
+                    icon="notification.png"
+                    interface="sample"
+                    key="control"
+                    value="midioutputimsdevice">
+                    <property
+                        name="チャンネル"
+                        datatype="int"
+                        default="1"
+                        key="channel"
+                        type="text" />
+                    <property
+                        name="ノート番号"
+                        datatype="int"
+                        default="69"
+                        key="note"
+                        type="text" />
+                    <property
+                        name="ベロシティ"
+                        datatype="int"
+                        default="127"
+                        key="velocity"
+                        type="text" />
+                </condition>
+            </then>
+        </device>
+    </language>
+    <language name="en">
+        <device
+            name="MidiOutputDevice"
+            dataitem="sample"
+            icon="midioutputimsdevice.png"
+            key="devicename"
+            value="MidiOutputDevice">
+
+            <then>
+                <condition
+                    name="Send Midi Message"
+                    icon="notification.png"
+                    interface="sample"
+                    key="control"
+                    value="midioutputimsdevice">
+                    <property
+                        name="Channel"
+                        datatype="int"
+                        key="channel"
+                        type="text" />
+                    <property
+                        name="NoteNumber"
+                        datatype="int"
+                        default="69"
+                        key="note"
+                        type="text" />
+                    <property
+                        name="Velocity"
+                        datatype="int"
+                        default="127"
+                        key="velocity"
+                        type="text" />
+                </condition>
+            </then>
+        </device>
+    </language>
+
+</iflink>
